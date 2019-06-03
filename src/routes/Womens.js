@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import functions from '../functions/functions'
 import Layout from '../components/Layout'
 
-class WhaleOfASale extends Component {
+class Womens extends Component {
 	constructor(props) {
 		super(props);
 
@@ -13,7 +13,7 @@ class WhaleOfASale extends Component {
 	}
 
 	componentDidMount() {
-		functions.getProducts('whale-of-a-sale').then(data => {
+		functions.getProducts('sale-womens').then(data => {
 			console.log(data)
 		})
 	}
@@ -27,4 +27,4 @@ class WhaleOfASale extends Component {
 	}
 }
 
-export default WhaleOfASale
+export default Womens

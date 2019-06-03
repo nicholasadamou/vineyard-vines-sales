@@ -9,7 +9,7 @@ import {
 import PageLoader from './components/PageLoader'
 
 const MensPage = lazy(() => import('./routes/Mens'))
-const WomansPage = lazy(() => import('./routes/Womans'))
+const WomensPage = lazy(() => import('./routes/Womens'))
 const WhaleOfASalePage = lazy(() => import('./routes/Mens'))
 
 const Routes = () => {
@@ -21,8 +21,8 @@ const Routes = () => {
 						return <MensPage {...props} />
 					}}
 				/>
-				<Route exact path="/womans" render={(props) => {
-						return <WomansPage {...props} />
+				<Route exact path="/womens" render={(props) => {
+						return <WomensPage {...props} />
 					}}
 				/>
 				<Route exact path="/whale-of-a-sale" render={(props) => {
