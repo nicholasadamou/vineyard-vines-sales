@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import Menu from './Menu'
 import Header from './Header'
 import Footer from './Footer'
-import BackToTopLink from './BackToTopLink'
+import ScrollButton from './ScrollButton'
+import SizeSideBar from './SizeSideBar'
 
 const HeaderWrapper = styled.div`
 	display: flex;
@@ -38,8 +39,9 @@ class Mens extends Component {
 				</HeaderWrapper>
 				<Menu />
 				<Header />
+				<SizeSideBar />
 				{ children }
-				<BackToTopLink />
+				<ScrollButton scrollStepInPx="50" delayInMs="16.66" />
 				<Footer />
 			</div>
 		)
