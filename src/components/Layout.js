@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import Menu from './Menu'
+import Header from './Header'
 import Footer from './Footer'
+import BackToTopLink from './BackToTopLink'
 
 const HeaderWrapper = styled.div`
 	display: flex;
@@ -35,7 +37,9 @@ class Mens extends Component {
 					<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
 				</HeaderWrapper>
 				<Menu />
+				<Header />
 				{ children }
+				<BackToTopLink />
 				<Footer />
 			</div>
 		)

@@ -1,1 +1,9 @@
+body {
+	position: relative;
+}
 
+
+*::selection {
+	color: white;
+	background: #007fba;
+}
