@@ -10,7 +10,7 @@ import PageLoader from './components/PageLoader'
 
 const MensPage = lazy(() => import('./routes/Mens'))
 const WomensPage = lazy(() => import('./routes/Womens'))
-const WhaleOfASalePage = lazy(() => import('./routes/Mens'))
+const WhaleOfASalePage = lazy(() => import('./routes/WhaleOfASale'))
 
 const Routes = () => {
 	return (

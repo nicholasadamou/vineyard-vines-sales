@@ -11,7 +11,7 @@ export default {
      * Acceptable Size's:
      * X, XS, XXS, S, M, L, XL, XXL, 2XL, 3XL, 4XL, null
      */
-	getProducts: async (sale, size='')  => {
+	getProducts: async (sale='', size='')  => {
 		let URL = ''
 
 		if (size !== '') {
