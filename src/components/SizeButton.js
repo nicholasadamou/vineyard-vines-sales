@@ -32,7 +32,7 @@ class SizeButton extends Component {
 		}
 	}
 
-	isSelected = () => {
+	isSelected = (size, setSize) => {
 		this.setState({
 			isSelected: !this.state.isSelected
 		})
@@ -46,8 +46,8 @@ class SizeButton extends Component {
 		  <StyledButton
 			className={isSelected ? 'selected' : ''}
 			onClick={() => {
-			  this.isSelected();
-			  setSize(size);
+			  this.isSelected(setSize);
+			  setSize(size, !this.state.isSelected);
 			}}
 		  >
 			{size.toUpperCase()}
