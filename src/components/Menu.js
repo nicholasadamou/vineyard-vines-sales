@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { Link } from 'react-router-dom'
 
-import { getPageState } from '../utils/utils'
+import { getPageName } from '../utils/utils'
 
 const MenuWrapper = styled.div`
 	display: flex;
@@ -57,10 +57,10 @@ const NavWrapper = styled.nav`
 const Menu = () => {
 	const links = [
 		{
-			label: "Men's", to: '/mens'
+			label: "Men's", to: '/sale-mens'
 		},
 		{
-			label: "Women's", to: '/womens'
+			label: "Women's", to: '/sale-womens'
 		},
 		{
 			label: 'Whale of a Sale', to: '/whale-of-a-sale'
@@ -68,7 +68,7 @@ const Menu = () => {
 	]
 
 	const items = links.map(link => {
-		const isActive = getPageState() === link.to.substring(1)
+		const isActive = getPageName() === link.to.substring(1)
 
 		return (
 			<Link

@@ -1,31 +1,35 @@
 import React, { Component } from 'react'
 
+import { withRouter } from 'react-router-dom'
+
 import styled from 'styled-components';
 
 import SizeButton from './SizeButton';
 
 const SideBarWrapper = styled.div`
 	position: absolute;
-	left: 10px;
+	left: 30px;
 
-	width: 25%;
+	width: 280px;
 
-	h4 {
+	h3 {
 		margin: 0;
+
+		color: #002960;
+		text-transform: uppercase;
 	}
 
 	hr {
-		height: 1px;
+		height: 2px;
 		border: 0;
 
-		color: #dedede;
-		border-color: #dedede;
 		background-color: #dedede;
 	}
 `;
 
 const ButtonsWrapper = styled.div`
-
+	margin-left: -10px;
+	margin-top: 24px;
 `;
 
 class SizeSideBar extends Component {
@@ -33,26 +37,27 @@ class SizeSideBar extends Component {
 		super(props);
 
 		this.state = {
-			size: ''
+			query: ''
 		}
 
-		this.setSize.bind(this);
+		this.setSize = this.setSize.bind(this);
 	}
 
-	setSize(size='') {
+	setSize(size) {
 		this.setState({
-			size
-		});
+			query: size.toUpperCase(),
+		}, () => {
+			if (this.state.query.length > 0) {
+				this.props.history.push(`?size=${size.toUpperCase()}`)
+			}
+		})
 	}
 
 	render() {
-		const { size } = this.state;
-		console.log("SIZE: ", size);
-
 		return (
 			<SideBarWrapper>
-				<h4>Size</h4>
-				<hr />
+			<h3>Size</h3>
+			<hr />
 				<ButtonsWrapper>
 					<SizeButton size="x" setSize={this.setSize} />
 					<SizeButton size="xxs" setSize={this.setSize} />
@@ -71,4 +76,4 @@ class SizeSideBar extends Component {
 	}
 }
 
-export default SizeSideBar
+export default withRouter(SizeSideBar)

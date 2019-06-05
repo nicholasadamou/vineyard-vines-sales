@@ -19,21 +19,25 @@ const HeaderWrapper = styled.div`
 	h3, h1 {
 		margin: 0;
 		padding: 0;
+
+		text-transform: uppercase;
 	}
 
 	h3 {
 		color: #f40000;
+		font-size: 24px;
 	}
 
 	h1 {
 		position: relative;
 
 		color: #012960;
+		font-size: 40px;
 
 		img {
 			position: absolute;
-			bottom: -5px;
-			left: 80px;
+			bottom: 0px;
+			left: 95px;
 		}
 	}
 `;

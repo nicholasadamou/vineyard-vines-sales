@@ -16,12 +16,12 @@ const Routes = () => {
 	return (
 		<Suspense fallback={<PageLoader />}>
 			<Switch>
-				<Route exact path="/" render={() => <Redirect to="/mens" />} />
-				<Route exact path="/mens" render={(props) => {
+				<Route exact path="/" render={() => <Redirect to="/sale-mens" />} />
+				<Route exact path="/sale-mens" render={(props) => {
 						return <MensPage {...props} />
 					}}
 				/>
-				<Route exact path="/womens" render={(props) => {
+				<Route exact path="/sale-womens" render={(props) => {
 						return <WomensPage {...props} />
 					}}
 				/>
