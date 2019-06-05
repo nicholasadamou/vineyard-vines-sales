@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { withRouter } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 import { getPageName, getPageQueries } from '../utils/utils'
@@ -20,19 +22,21 @@ class WhaleOfASale extends Component {
 		functions.getProducts(getPageName()).then(data => {
 			this.setState({
 				data
+			}, () => {
+				console.log(data);
 			})
 		})
 	}
 
-	componentDidUpdate() {
-		const { size } = getPageQueries(this.props.location.search)
+	// componentDidUpdate() {
+	// 	const { size } = getPageQueries(this.props.location.search)
 
-		functions.getProducts(getPageName(), size).then(data => {
-			this.setState({
-				data
-			})
-		})
-	}
+	// 	functions.getProducts(getPageName(), size).then(data => {
+	// 		this.setState({
+	// 			data
+	// 		})
+	// 	})
+	// }
 
 	render() {
 		return (
@@ -43,4 +47,4 @@ class WhaleOfASale extends Component {
 	}
 }
 
-export default WhaleOfASale
+export default withRouter(WhaleOfASale)

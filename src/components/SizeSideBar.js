@@ -36,21 +36,11 @@ class SizeSideBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			query: ''
-		}
-
 		this.setSize = this.setSize.bind(this);
 	}
 
 	setSize(size) {
-		this.setState({
-			query: size.toUpperCase(),
-		}, () => {
-			if (this.state.query.length > 0) {
-				this.props.history.push(`?size=${size.toUpperCase()}`)
-			}
-		})
+		this.props.history.push(`?size=${size}`)
 	}
 
 	render() {

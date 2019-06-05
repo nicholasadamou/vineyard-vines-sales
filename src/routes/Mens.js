@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { withRouter } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 import { getPageName, getPageQueries } from '../utils/utils'
@@ -17,22 +19,36 @@ class Mens extends Component {
 	}
 
 	componentDidMount() {
-		functions.getProducts(getPageName()).then(data => {
-			this.setState({
-				data
-			})
-		})
-	}
-
-	componentDidUpdate() {
 		const { size } = getPageQueries(this.props.location.search)
 
-		functions.getProducts(getPageName(), size).then(data => {
-			this.setState({
-				data
+		if (size != null) {
+			functions.getProducts(getPageName(), size).then(data => {
+				this.setState({
+					data
+				}, () => {
+					console.log(data);
+				})
 			})
-		})
+		} else {
+			functions.getProducts(getPageName()).then(data => {
+				this.setState({
+					data
+				}, () => {
+					console.log(data);
+				})
+			})
+		}
 	}
+
+	// componentDidUpdate() {
+	// 	const { size } = getPageQueries(this.props.location.search)
+
+	// 	functions.getProducts(getPageName(), size).then(data => {
+	// 		this.setState({
+	// 			data
+	// 		})
+	// 	})
+	// }
 
 	render() {
 		return (
@@ -43,4 +59,4 @@ class Mens extends Component {
 	}
 }
 
-export default Mens
+export default withRouter(Mens)

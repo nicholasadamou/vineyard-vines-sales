@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import styled from 'styled-components';
+import { getPageQueries } from '../utils/utils'
 
-import { getPageName, getPageQueries } from '../utils/utils'
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
 	padding: 2px 18px;
@@ -19,7 +19,7 @@ const StyledButton = styled.button`
 
 	&:hover {
 		color: white;
-		background: #0f76ba;
+		background: #002b5c;
 	}
 `;
 
@@ -28,28 +28,32 @@ class SizeButton extends Component {
 		super(props);
 
 		this.state = {
-
+			isSelected: false
 		}
 	}
 
+	isSelected = () => {
+		this.setState({
+			isSelected: !this.state.isSelected
+		})
+	}
 
 	render() {
-		const { size, setSize } = this.props
-
-		// const currentSize = getPageQueries(window.location.search).size
-		// const isSelected = currentSize === size
+		const { size, setSize } = this.props;
+		const { isSelected } = this.state;
 
 		return (
-			<StyledButton
-				id="sizeButton"
-				onClick={() => {
-					setSize(size);
-				}}
-			>
-				{size.toUpperCase()}
-			</StyledButton>
+		  <StyledButton
+			className={isSelected ? 'selected' : ''}
+			onClick={() => {
+			  this.isSelected();
+			  setSize(size);
+			}}
+		  >
+			{size.toUpperCase()}
+		  </StyledButton>
 		)
-	}
+	  }
 }
 
 export default SizeButton
