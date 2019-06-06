@@ -9,10 +9,12 @@ const FooterWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-end;
 	flex-direction: column;
+	flex-shrink: 0;
 
-	height: 35vh;
+	height: 20vh;
 
-	padding-bottom: 60px;
+    padding-bottom: 25px;
+	margin-top: auto;
 
 	background-color: #f8f8f8;
 	color: #DEDEDE;

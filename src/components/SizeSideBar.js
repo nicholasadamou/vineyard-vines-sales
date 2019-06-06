@@ -8,10 +8,10 @@ import SizeButton from './SizeButton';
 import { getPageQueries } from '../utils/utils';
 
 const SideBarWrapper = styled.div`
-	position: absolute;
-	left: 30px;
+	margin-top: 40px;
+    margin-left: 30px;
 
-	width: 280px;
+	width: 260px;
 
 	h3 {
 		margin: 0;
@@ -30,7 +30,7 @@ const SideBarWrapper = styled.div`
 
 const ButtonsWrapper = styled.div`
 	margin-left: -10px;
-	margin-top: 24px;
+	margin-top: 20px;
 `;
 
 class SizeSideBar extends Component {

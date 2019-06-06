@@ -8,6 +8,12 @@ import Footer from './Footer'
 import ScrollButton from './ScrollButton'
 import SizeSideBar from './SizeSideBar'
 
+const ContentWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+`;
+
 const HeaderWrapper = styled.div`
 	display: flex;
 	align-items: center;
@@ -33,7 +39,7 @@ class Mens extends Component {
 		const { children } = this.props
 
 		return(
-			<div>
+			<ContentWrapper>
 				<HeaderWrapper>
 					<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
 				</HeaderWrapper>
@@ -41,9 +47,9 @@ class Mens extends Component {
 				<Header />
 				<SizeSideBar />
 				{ children }
-				<ScrollButton scrollStepInPx="50" delayInMs="16.66" />
+				{/* <ScrollButton scrollStepInPx="50" delayInMs="16.66" /> */}
 				<Footer />
-			</div>
+			</ContentWrapper>
 		)
 	}
 }
