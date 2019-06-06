@@ -11,14 +11,26 @@ export default {
      * Acceptable Size's:
      * X, XS, XXS, S, M, L, XL, XXL, 2XL, 3XL, 4XL, null
      */
-	getProducts: async (sale='', size='')  => {
+	getProducts: async (sale='', sizes=[])  => {
 		let URL = ''
 
-		if (size !== '') {
-			URL = `https://www.vineyardvines.com/${sale}/?prefn1=size&prefv1=${size.toUpperCase()}`
-		} else {
+		if (sizes.length === 0) {
 			URL = `https://www.vineyardvines.com/${sale}`
+		} else {
+			URL = `https://www.vineyardvines.com/${sale}/?prefn1=size&prefv1=`
+			for (let i = 0; i < sizes.length; i++) {
+				let size = sizes[i]
+
+				if (i === 0) {
+					URL = URL.concat(size.toUpperCase())
+					continue;
+				} else {
+					URL = URL.concat(`%7C${size.toUpperCase()}`)
+				}
+			}
 		}
+
+		console.log(URL)
 
 		try {
 			const { data } = await axios(URL, {

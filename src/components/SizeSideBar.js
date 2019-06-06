@@ -5,7 +5,9 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components';
 
 import SizeButton from './SizeButton';
-import { getPageQueries } from '../utils/utils';
+import { getPageName, getPagesizes } from '../utils/utils';
+
+import functions from '../functions/functions'
 
 const SideBarWrapper = styled.div`
 	margin-top: 40px;
@@ -37,54 +39,36 @@ class SizeSideBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			queries: []
-		}
-
 		this.setSize = this.setSize.bind(this);
 	}
 
 	setSize(size, isSelected) {
-		let { queries } = this.state
-		const prev = getPageQueries(this.props.history.location.search)
+		let { sizes } = this.props
+		
+		// If the list of current sizes does NOT contain this size
+		// and if the size is NOT selected
+		if (!sizes.includes(size) && isSelected) {
+			// Then, add the size to the list of sizes
+			console.log(`ADDED=${size}`)
+			sizes.push(`${size}`)
 
-		// If the QueryString DOES NOT contain the selected size
-		if (prev.size !== size) {
-			// Check if the list of current queries contains more than 1 size
-			// if (queries.length >= 1 && isSelected) {
-			// 	 If yes, append '%20${size}'
-			// 	queries.push(`%20${size}`)
-			// 	if (isSelected) {
-			// 		If yes, append '%20${size}'
-			// 		queries.push(`%20${size}`)
-			// 	} else {
-			// 		this.setState({
-			// 			queries: queries.filter(item => {
-			// 				return item !== size
-			// 			})
-			// 		})
-
-			// 		console.log("QUERIES => ", this.state.queries)
-			// 	}
-			// } else if (queries.length === 0 && isSelected) {
-			// 	Else, append '${size}'
-			// 	queries.push(`${size}`)
-			// }
+		// If the size IS included w/in the list of sizes,
+		// but is no longer selected
+		} else if (sizes.includes(size) && !isSelected) {
+			// remove the size from the list
+			let index = sizes.indexOf(size);
+			if (index !== -1) sizes.splice(index, 1);
+			console.log(`REMOVED=${size}`)
 		}
 
-		// Check if QueryString of size is empty
-		// If yes, then remove it entirely
-		const next = getPageQueries(this.props.history.location.search)
-		if (next.size === "") {
-			this.props.history.push('')
-		}
+		functions.getProducts(getPageName(), sizes).then(data => {
+			console.log(data)
+		})
 
-		const qs = getPageQueries(this.props.history.location.search)
-		//console.log(size, isSelected, qs, this.props)
+		console.log(`sizes=${sizes} isSelected=${isSelected}`)
 	}
 
 	render() {
-		//console.log(getPageQueries(this.props.history.location.search))
 		return (
 			<SideBarWrapper>
 			<h3>Size</h3>

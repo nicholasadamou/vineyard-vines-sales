@@ -1,5 +1,15 @@
 export function getPageName() {
-	return window.location.href.split('/')[3]
+	let pageName = ''
+	let URL = window.location.href
+	let path = URL.split('/')[3]
+
+	if (path.includes('?')) {
+		pageName = path.substring(0, path.indexOf('?'))
+	} else {
+		pageName = path
+	}
+
+	return pageName
 }
 
 export const getPageQueries = (url) => {

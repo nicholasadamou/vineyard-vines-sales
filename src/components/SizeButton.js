@@ -22,6 +22,18 @@ const StyledButton = styled.button`
 		color: white;
 		background: #002b5c;
 	}
+
+	&.selected {
+		border: 1px solid white !important;
+		color: white !important;
+		background: #002b5c;
+		box-shadow: 0 0 0 2px #002b5c;
+
+		&:hover {
+			color: #002b5c !important;
+			background: white !important;
+		}
+	}
 `;
 
 class SizeButton extends Component {

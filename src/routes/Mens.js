@@ -4,7 +4,9 @@ import { withRouter } from 'react-router-dom'
 
 import styled from 'styled-components'
 
-import { getPageName, getPageQueries } from '../utils/utils'
+import { getPageName } from '../utils/utils'
+
+import SizeSideBar from '../components/SizeSideBar'
 
 import functions from '../functions/functions'
 import Layout from '../components/Layout'
@@ -14,46 +16,27 @@ class Mens extends Component {
 		super(props);
 
 		this.state = {
-			data: []
+			data: [],
+			sizes: []
 		}
 	}
 
 	componentDidMount() {
-		const { size } = getPageQueries(this.props.location.search)
-
-		if (size != null) {
-			functions.getProducts(getPageName(), size).then(data => {
-				this.setState({
-					data
-				}, () => {
-					console.log(data);
-				})
+		functions.getProducts(getPageName(), this.state.sizes).then(data => {
+			this.setState({
+				data
+			}, () => {
+				console.log(data);
 			})
-		} else {
-			functions.getProducts(getPageName()).then(data => {
-				this.setState({
-					data
-				}, () => {
-					console.log(data);
-				})
-			})
-		}
+		})
 	}
 
-	// componentDidUpdate() {
-	// 	const { size } = getPageQueries(this.props.location.search)
-
-	// 	functions.getProducts(getPageName(), size).then(data => {
-	// 		this.setState({
-	// 			data
-	// 		})
-	// 	})
-	// }
-
 	render() {
+		const { sizes } = this.state
+
 		return (
 			<Layout>
-
+				<SizeSideBar sizes={sizes} />
 			</Layout>
 		)
 	}
