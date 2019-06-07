@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import { getPageQueries } from '../utils/utils'
-
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -28,11 +26,6 @@ const StyledButton = styled.button`
 		color: white !important;
 		background: #002b5c;
 		box-shadow: 0 0 0 2px #002b5c;
-
-		&:hover {
-			color: #002b5c !important;
-			background: white !important;
-		}
 	}
 `;
 
@@ -45,7 +38,7 @@ class SizeButton extends Component {
 		}
 	}
 
-	isSelected = (size, setSize) => {
+	isSelected = () => {
 		this.setState({
 			isSelected: !this.state.isSelected
 		})

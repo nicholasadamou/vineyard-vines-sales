@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import styled from 'styled-components'
 
@@ -31,7 +31,7 @@ const Layout = (props) => {
 	const { children } = props;
 
 	return(
-		<ContentWrapper>
+		<ContentWrapper className="content">
 			<HeaderWrapper>
 				<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
 			</HeaderWrapper>

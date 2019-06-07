@@ -18,6 +18,7 @@ export default {
 			URL = `https://www.vineyardvines.com/${sale}`
 		} else {
 			URL = `https://www.vineyardvines.com/${sale}/?prefn1=size&prefv1=`
+			
 			for (let i = 0; i < sizes.length; i++) {
 				let size = sizes[i]
 
@@ -61,8 +62,8 @@ export default {
 
 					product = {
 						"title": name,
-						"sale-price": sale,
-						"original-price": original,
+						"sale_price": sale,
+						"original_price": original,
 						"savings": savings,
 						"color": color,
 						'image': image,

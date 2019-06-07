@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import styled from 'styled-components'
 
@@ -11,8 +11,19 @@ const MenuWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	z-index: 9999;
+
 	border-top: 2px solid #dedede;
 	border-bottom: 2px solid #dedede;
+
+	background: white;
+
+	&.sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
 `;
 
 const NavWrapper = styled.nav`
@@ -54,42 +65,84 @@ const NavWrapper = styled.nav`
 	}
 `;
 
-const Menu = () => {
-	const links = [
-		{
-			label: "Men's", to: '/sale-mens'
-		},
-		{
-			label: "Women's", to: '/sale-womens'
-		},
-		{
-			label: 'Whale of a Sale', to: '/whale-of-a-sale'
+class Menu extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {}
+
+		this.handleScroll = this.handleScroll.bind(this);
+	}
+
+	handleScroll() {
+		this.setState({
+			scroll: window.scrollY
+		})
+	}
+
+	componentDidMount() {
+		const menu = document.getElementById('menu')
+
+		this.setState({
+			top: menu.offsetTop,
+			height: menu.offsetHeight
+		})
+
+		window.addEventListener('scroll', this.handleScroll)
+	}
+
+	componentDidUpdate() {
+		const { scroll, top, height } = this.state
+
+		if (scroll >= top) {
+			 document.body.style.paddingTop = `${height}px`
+		} else {
+			document.body.style.paddingTop = 0
 		}
-	]
+	}
 
-	const items = links.map(link => {
-		const isActive = getPageName() === link.to.substring(1)
+	render() {
+		const { scroll, top } = this.state
 
+		const links = [
+			{
+				label: "Men's", to: '/sale-mens'
+			},
+			{
+				label: "Women's", to: '/sale-womens'
+			},
+			{
+				label: 'Whale of a Sale', to: '/whale-of-a-sale'
+			}
+		]
+	
+		const items = links.map(link => {
+			const isActive = getPageName() === link.to.substring(1)
+	
+			return (
+				<Link
+					key={link.to}
+					to={link.to}
+	
+					className={ isActive ? 'menu__item-active' : '' }
+				>
+						{link.label}
+				</Link>
+			)
+		})
+	
+	
 		return (
-			<Link
-				key={link.to}
-				to={link.to}
-
-				className={ isActive ? 'menu__item-active' : '' }
+			<MenuWrapper 
+				className={scroll > top ? 'sticky' : ''}
+				id="menu"
 			>
-					{link.label}
-			</Link>
+				<NavWrapper>
+					{items}
+				</NavWrapper>
+			</MenuWrapper>
 		)
-	})
-
-
-	return (
-		<MenuWrapper>
-			<NavWrapper>
-				{items}
-			</NavWrapper>
-		</MenuWrapper>
-	)
+	}
 }
 
 export default Menu
