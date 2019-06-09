@@ -2,6 +2,8 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import { Link } from 'react-router-dom'
+
 import Menu from './Menu'
 import Footer from './Footer'
 import ScrollButton from './ScrollButton'
@@ -34,7 +36,9 @@ const Layout = (props) => {
 	return(
 		<ContentWrapper className="content">
 			<HeaderWrapper>
-				<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
+				<Link to="/">
+					<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
+				</Link>
 			</HeaderWrapper>
 			<Menu />
 			{ children }
