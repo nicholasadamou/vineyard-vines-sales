@@ -11,7 +11,7 @@ const FooterWrapper = styled.div`
 	flex-direction: column;
 	flex-shrink: 0;
 
-	height: 20vh;
+	height: 25vh;
 
     padding-bottom: 25px;
 	margin-top: auto;

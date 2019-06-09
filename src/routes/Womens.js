@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { getPageName } from '../utils/utils'
 
 import SizeSideBar from '../components/SizeSideBar'
+import Header from '../components/Header'
 import Products from '../components/Products'
 import Loading from '../components/Loading'
 
@@ -14,10 +15,14 @@ import functions from '../functions/functions'
 import Layout from '../components/Layout'
 
 const Warning = styled.p`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	display: grid;
+	align-content: center;
+	grid-auto-flow: row;
+	grid-template-columns: auto auto auto;
+
+	height: 100%;
+
+	margin: 0 auto;
 `
 
 class Womens extends Component {
@@ -91,7 +96,12 @@ class Womens extends Component {
 
 		return (
 			<Layout>
-				<SizeSideBar sizes={sizes} setSize={this.setSize} />
+				<SizeSideBar
+					data={data}
+					sizes={sizes}
+					setSize={this.setSize}
+					loading={loading}
+				/>
 				{loading ? (
 					<Loading />
 				) : (
@@ -101,7 +111,10 @@ class Womens extends Component {
 							There are no products to display.
 						</Warning>
 					) : (
-						<Products products={this.state.data} />
+							<div>
+								<Header />
+								<Products products={this.state.data} />
+							</div>
 					)
 				)}
 			</Layout>

@@ -13,8 +13,8 @@ const MenuWrapper = styled.div`
 
 	z-index: 9999;
 
-	border-top: 2px solid #dedede;
-	border-bottom: 2px solid #dedede;
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
 
 	background: white;
 
@@ -115,25 +115,25 @@ class Menu extends Component {
 				label: 'Whale of a Sale', to: '/whale-of-a-sale'
 			}
 		]
-	
+
 		const items = links.map(link => {
 			const isActive = getPageName() === link.to.substring(1)
-	
+
 			return (
 				<Link
 					key={link.to}
 					to={link.to}
-	
+
 					className={ isActive ? 'menu__item-active' : '' }
 				>
 						{link.label}
 				</Link>
 			)
 		})
-	
-	
+
+
 		return (
-			<MenuWrapper 
+			<MenuWrapper
 				className={scroll > top ? 'sticky' : ''}
 				id="menu"
 			>

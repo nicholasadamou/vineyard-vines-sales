@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Menu from './Menu'
-import Header from './Header'
 import Footer from './Footer'
 import ScrollButton from './ScrollButton'
 
@@ -11,6 +10,8 @@ const ContentWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+
+	margin: 0 150px;
 `;
 
 const HeaderWrapper = styled.div`
@@ -36,7 +37,6 @@ const Layout = (props) => {
 				<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
 			</HeaderWrapper>
 			<Menu />
-			<Header />
 			{ children }
 			<ScrollButton scrollStepInPx="50" delayInMs="8" />
 			<Footer />

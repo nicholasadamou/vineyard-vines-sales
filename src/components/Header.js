@@ -10,9 +10,10 @@ const HeaderWrapper = styled.div`
 	justify-content: center;
 	flex-direction: column;
 
-	height: 10vh;
-
 	padding: 20px 30px;
+
+	margin-top: 5px;
+	margin-left: 400px;
 
 	background-color: #f8f8f8;
 

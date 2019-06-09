@@ -6,10 +6,11 @@ import styled from 'styled-components'
 const ProductsWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 0;
 
-    margin-left: 325px;
+	margin: 0 auto;
 	margin-top: 30px;
+	margin-left: 400px;
 	margin-bottom: 40px;
 `
 
@@ -19,13 +20,9 @@ const Product = styled.div`
     a {
 		text-decoration: none;
 
-        img {
-			width: 45%;
-
-			&:hover {
-				border-bottom: 1px solid #dedede;
-			}
-        }
+		img {
+			width: 50%;
+		}
     }
 `
 

@@ -10,8 +10,7 @@ import { getPageName } from '../utils/utils'
 
 const SideBarWrapper = styled.div`
     position: absolute;
-    top: 18em;
-	left: 0;
+    top: 10em;
 
 	margin-top: 40px;
 	margin-left: 30px;
@@ -21,7 +20,6 @@ const SideBarWrapper = styled.div`
 	&.sticky {
 		position: fixed;
 		top: 2rem;
-		left: 0;
 		width: 260px;
 	}
 
@@ -71,13 +69,25 @@ class SizeSideBar extends Component {
 		window.addEventListener('scroll', this.handleScroll)
 	}
 
+	componentDidUpdate() {
+		const { scroll, top, height } = this.state
+
+		if (scroll > top) {
+			 document.body.style.paddingTop = `${height}px`
+		} else {
+			document.body.style.paddingTop = 0
+		}
+	}
+
 	render() {
 		const { scroll, top } = this.state
-		const { setSize } = this.props
+		const { loading, data, setSize } = this.props
 
 		return (
 			<SideBarWrapper
-				className={scroll > top ? 'sticky' : ''} id="size-side-bar"
+				id="size-side-bar"
+				className={scroll > top ? 'sticky' : ''}
+				style={{ display: (loading || data.length === 0) ? 'none' : 'block' }}
 			>
 			<h3>Size</h3>
 			<hr />
