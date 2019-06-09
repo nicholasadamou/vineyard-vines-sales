@@ -31,6 +31,12 @@
 
 ---
 
+## What is '_Vineyard Vines / Sales_'?
+
+I started this project first as a web-scrapper to obtain the latest data on their sales for mens and womens. Then, I decided, since I have the data from Vineyard Vines, why not try to reconstruct their sales page for both men's an womens?
+
+⚠️ To access the demo of 'Vineyard Vines / Sales' visit this link: [vineyard-vines-sales demo](https://vineyard-vines-sales.netlify.com/).
+
 ## 📚 The Tech. Stack
 
 This project uses the following technologies:
