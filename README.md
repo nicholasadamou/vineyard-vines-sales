@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/nicholasadamou/vineyard-vines-sales"><img src="data/images/logo.png" alt="Logo" width="280"></a>
+  <a href="https://github.com/nicholasadamou/vineyard-vines-sales"><img src="data/images/logo.png" alt="Logo"></a>
   <br>
   Vineyard Vines / Sales
   <br>
