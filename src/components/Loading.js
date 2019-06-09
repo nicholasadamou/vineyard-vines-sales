@@ -13,10 +13,10 @@ const ProgressWrapper = styled.div`
 	height: 100vh;
 `
 
-const PageLoader = () => (
+const Loading = () => (
 	<ProgressWrapper>
-		<CircularProgress />
+		<CircularProgress style={{color: '#002A5C' }} />
 	</ProgressWrapper>
 )
 
-export default PageLoader
+export default Loading

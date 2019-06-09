@@ -6,11 +6,13 @@ import styled from 'styled-components';
 
 import SizeButton from './SizeButton';
 
+import { getPageName } from '../utils/utils'
+
 const SideBarWrapper = styled.div`
     position: absolute;
     top: 18em;
 	left: 0;
-	
+
 	margin-top: 40px;
 	margin-left: 30px;
 
@@ -74,11 +76,22 @@ class SizeSideBar extends Component {
 		const { setSize } = this.props
 
 		return (
-			<SideBarWrapper 
+			<SideBarWrapper
 				className={scroll > top ? 'sticky' : ''} id="size-side-bar"
 			>
 			<h3>Size</h3>
 			<hr />
+			{getPageName() === 'sale-womens' ? (
+				<ButtonsWrapper>
+					<SizeButton size="x" setSize={setSize} />
+					<SizeButton size="xxs" setSize={setSize} />
+					<SizeButton size="xs" setSize={setSize} />
+					<SizeButton size="s" setSize={setSize} />
+					<SizeButton size="m" setSize={setSize} />
+					<SizeButton size="l" setSize={setSize} />
+					<SizeButton size="xl" setSize={setSize} />
+				</ButtonsWrapper>
+			) : (
 				<ButtonsWrapper>
 					<SizeButton size="x" setSize={setSize} />
 					<SizeButton size="xxs" setSize={setSize} />
@@ -92,6 +105,7 @@ class SizeSideBar extends Component {
 					<SizeButton size="3xl" setSize={setSize} />
 					<SizeButton size="4xl" setSize={setSize} />
 				</ButtonsWrapper>
+			)}
 			</SideBarWrapper>
 		)
 	}

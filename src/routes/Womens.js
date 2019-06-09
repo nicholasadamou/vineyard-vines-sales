@@ -2,13 +2,23 @@ import React, { Component } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
+import styled from 'styled-components'
+
 import { getPageName } from '../utils/utils'
 
 import SizeSideBar from '../components/SizeSideBar'
 import Products from '../components/Products'
+import Loading from '../components/Loading'
 
 import functions from '../functions/functions'
 import Layout from '../components/Layout'
+
+const Warning = styled.p`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`
 
 class Womens extends Component {
 	constructor(props) {
@@ -16,16 +26,23 @@ class Womens extends Component {
 
 		this.state = {
 			data: [],
-			sizes: []
+			sizes: [],
+			loading: false
 		}
 
 		this.setSize = this.setSize.bind(this);
 	}
 
 	componentDidMount() {
+		// Currently fetching data
+		this.setState({
+			loading: true
+		})
+
 		functions.getProducts(getPageName(), this.state.sizes).then(data => {
 			this.setState({
-				data
+				data,
+				loading: false // data fetching finished
 			}, () => {
 				console.log(getPageName(), data)
 			})
@@ -34,7 +51,12 @@ class Womens extends Component {
 
 	setSize(size, isSelected) {
 		let { sizes } = this.state
-		
+
+		// Currently fetching data
+		this.setState({
+			loading: true
+		})
+
 		// If the list of current sizes does NOT contain this size
 		// and if the size is NOT selected
 		if (!sizes.includes(size) && isSelected) {
@@ -54,7 +76,8 @@ class Womens extends Component {
 		functions.getProducts(getPageName(), sizes).then(data => {
 			this.setState({
 				data,
-				sizes
+				sizes,
+				loading: false // data fetching finished
 			}, () => {
 				console.log(getPageName(), data)
 			})
@@ -64,12 +87,23 @@ class Womens extends Component {
 	}
 
 	render() {
-		const { sizes } = this.state
+		const { data, sizes, loading } = this.state
 
 		return (
 			<Layout>
 				<SizeSideBar sizes={sizes} setSize={this.setSize} />
-				<Products products={this.state.data} />
+				{loading ? (
+					<Loading />
+				) : (
+					data.length === 0 ? (
+						<Warning>
+							<span role="img" aria-label="warning">⚠️</span>
+							There are no products to display.
+						</Warning>
+					) : (
+						<Products products={this.state.data} />
+					)
+				)}
 			</Layout>
 		)
 	}

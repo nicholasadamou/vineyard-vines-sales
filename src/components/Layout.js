@@ -38,7 +38,7 @@ const Layout = (props) => {
 			<Menu />
 			<Header />
 			{ children }
-			{/* <ScrollButton scrollStepInPx="50" delayInMs="16.66" /> */}
+			<ScrollButton scrollStepInPx="50" delayInMs="8" />
 			<Footer />
 		</ContentWrapper>
 	)

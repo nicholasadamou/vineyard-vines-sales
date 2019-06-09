@@ -9,23 +9,28 @@ const ProductsWrapper = styled.div`
     grid-gap: 10px;
 
     margin-left: 325px;
-    margin-top: 30px;
+	margin-top: 30px;
+	margin-bottom: 40px;
 `
 
 const Product = styled.div`
-    margin: 10px;
+	margin: 10px;
 
     a {
-        text-decoration: none;
+		text-decoration: none;
 
         img {
-            width: 50%;
+			width: 45%;
+
+			&:hover {
+				border-bottom: 1px solid #dedede;
+			}
         }
     }
 `
 
 const Name = styled.p`
-    font-size: 18px;
+    font-size: 16px;
     color: #002A5C;
 `
 
@@ -45,19 +50,29 @@ const Products = (props) => {
         return (
             <Product key={product.title}>
                 <a href={product.link} target="_blank" rel="noopener noreferrer">
-                    <img src={product.image} alt={product.title} />
+					<img
+						className="product-image"
+						src={product.image}
+						alt={product.title}
+						onMouseEnter={e => {
+							e.currentTarget.src = product.alternate
+						}}
+						onMouseLeave={e => {
+							e.currentTarget.src = product.image
+						}}
+					/>
                     <Name>{product.title}</Name>
                     <SalePrice>${product.sale_price}</SalePrice>
-                    <OriginalPrice>${product.original_price}</OriginalPrice>
+					<OriginalPrice>${product.original_price}</OriginalPrice>
                 </a>
             </Product>
         )
     }
 
     return (
-        <ProductsWrapper>
-            {map(item, props.products)}
-        </ProductsWrapper>
+		<ProductsWrapper>
+			{map(item, props.products)}
+		</ProductsWrapper>
     )
 }
 

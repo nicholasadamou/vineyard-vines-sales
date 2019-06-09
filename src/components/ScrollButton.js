@@ -1,36 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import styled from 'styled-components'
 
-import backToTop from '../assets/png/back-to-top.png'
+import UpArrow from '@material-ui/icons/ArrowUpward';
+import Tooltip from '@material-ui/core/Tooltip';
 
-const Link = styled.button`
+const Link = styled.a`
 	position: fixed;
-	bottom: 5px;
-	right: 5px;
+	bottom: 35px;
+    right: 50px;
 
 	border: none;
+
+	cursor: pointer;
+
+	z-index: 9999;
 `;
 
-class ScrollButton extends React.Component {
+class ScrollButton extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			interval: 0
-		};
+		}
 	}
 
 	scrollStep() {
 		if (window.pageYOffset === 0) {
-			clearInterval(this.state.interval);
+			clearInterval(this.state.interval)
 		}
 
-		window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+		window.scroll(0, window.pageYOffset - this.props.scrollStepInPx)
 	}
 
 	scrollToTop() {
-		let interval = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+		let interval = setInterval(this.scrollStep.bind(this), this.props.delayInMs)
 
 		this.setState({
 			interval
@@ -39,9 +44,11 @@ class ScrollButton extends React.Component {
 
 	render() {
 		return (
-			<Link onClick={() => { this.scrollToTop(); }}>
-				<img src={backToTop} alt="Back to top link" />
-			</Link>
+			<Tooltip title="Scroll back to the top.">
+				<Link onClick={() => { this.scrollToTop() }}>
+					<UpArrow />
+				</Link>
+			</Tooltip>
 		)
 	}
 }

@@ -18,7 +18,7 @@ export default {
 			URL = `https://www.vineyardvines.com/${sale}`
 		} else {
 			URL = `https://www.vineyardvines.com/${sale}/?prefn1=size&prefv1=`
-			
+
 			for (let i = 0; i < sizes.length; i++) {
 				let size = sizes[i]
 
@@ -30,8 +30,6 @@ export default {
 				}
 			}
 		}
-
-		console.log(URL)
 
 		try {
 			const { data } = await axios(URL, {
@@ -48,7 +46,8 @@ export default {
 				let name = parent.find('h2', 'name').text
 				let price = parent.find('p', 'productprice').text
 				let color = parent.find('span', 'a11y-only').text
-				let image = parent.attrs['data-alternate']
+				let image = parent.find('a').nextElement.attrs['data-src']
+				let alternate = parent.attrs['data-alternate']
 				let link = parent.find('a').attrs['href']
 
 				if (price.includes('Was')) {
@@ -67,16 +66,12 @@ export default {
 						"savings": savings,
 						"color": color,
 						'image': image,
+						'alternate': alternate,
 						'link': link
 					}
 				} else {
-					product = {
-						"title": name,
-						"price": price,
-						"color": color,
-						'image': image,
-						'link': link
-					}
+					// Only show products that are on sale
+					continue;
 				}
 
 				products.push(product)

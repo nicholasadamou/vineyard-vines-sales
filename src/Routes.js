@@ -6,7 +6,7 @@ import {
 	Redirect
 } from 'react-router-dom'
 
-import PageLoader from './components/PageLoader'
+import Loading from './components/Loading'
 
 const MensPage = lazy(() => import('./routes/Mens'))
 const WomensPage = lazy(() => import('./routes/Womens'))
@@ -14,7 +14,7 @@ const WhaleOfASalePage = lazy(() => import('./routes/WhaleOfASale'))
 
 const Routes = () => {
 	return (
-		<Suspense fallback={<PageLoader />}>
+		<Suspense fallback={<Loading />}>
 			<Switch>
 				<Route exact path="/" render={() => <Redirect to="/sale-mens" />} />
 				<Route exact path="/sale-mens" render={(props) => {
