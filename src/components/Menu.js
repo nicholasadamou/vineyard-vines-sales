@@ -81,7 +81,7 @@ class Menu extends Component {
 	}
 
 	componentDidMount() {
-		const menu = document.getElementById('menu')
+		const menu = this.menu
 
 		this.setState({
 			top: menu.offsetTop,
@@ -135,7 +135,7 @@ class Menu extends Component {
 		return (
 			<MenuWrapper
 				className={scroll > top ? 'sticky' : ''}
-				id="menu"
+				ref={(menu) => (this.menu = menu)}
 			>
 				<NavWrapper>
 					{items}

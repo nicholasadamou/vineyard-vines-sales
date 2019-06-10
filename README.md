@@ -21,9 +21,6 @@
   <a href="https://travis-ci.org/nicholasadamou/vineyard-vines-sales">
       <img src="https://img.shields.io/travis/nicholasadamou/vineyard-vines-sales/master.svg?style=flat-square" alt="Build Status">
   </a>
-  <a href="https://snyk.io/test/github/nicholasadamou/SickFits?targetFile=package.json">
-      <img src="https://snyk.io/test/github/nicholasadamou/vineyard-vines-sales/badge.svg?targetFile=package.json" alt="Vulnerabilities">
-  </a>
   <a href="https://saythanks.io/to/NicholasAdamou">
       <img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="Say Thanks">
   </a>

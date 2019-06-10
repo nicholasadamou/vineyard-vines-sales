@@ -21,6 +21,8 @@ const SideBarWrapper = styled.div`
 		position: fixed;
 		top: 2rem;
 		width: 260px;
+
+		z-index: 9999;
 	}
 
 	h3 {
@@ -59,7 +61,7 @@ class SizeSideBar extends Component {
 	}
 
 	componentDidMount() {
-		const sidebar = document.getElementById('size-side-bar')
+		const sidebar = this.sidebar
 
 		this.setState({
 			top: sidebar.offsetTop,
@@ -85,7 +87,7 @@ class SizeSideBar extends Component {
 
 		return (
 			<SideBarWrapper
-				id="size-side-bar"
+				ref={sidebar => (this.sidebar = sidebar)}
 				className={scroll > top ? 'sticky' : ''}
 				style={{ display: (loading || data.length === 0) ? 'none' : 'block' }}
 			>
