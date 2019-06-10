@@ -4,12 +4,13 @@ import { withRouter } from 'react-router-dom'
 
 import styled from 'styled-components'
 
-import { getPageName } from '../utils/utils'
+import { getPageName, isMobile } from '../utils/utils'
 
 import SizeSideBar from '../components/SizeSideBar'
 import Header from '../components/Header'
 import Products from '../components/Products'
 import Loading from '../components/Loading'
+import Mobile from '../components/Mobile'
 
 import functions from '../functions/functions'
 import Layout from '../components/Layout'
@@ -32,7 +33,8 @@ class Womens extends Component {
 		this.state = {
 			data: [],
 			sizes: [],
-			loading: false
+			loading: false,
+			isMobile: isMobile.any()
 		}
 
 		this.setSize = this.setSize.bind(this);
@@ -92,32 +94,36 @@ class Womens extends Component {
 	}
 
 	render() {
-		const { data, sizes, loading } = this.state
+		const { data, sizes, loading, isMobile } = this.state
 
 		return (
-			<Layout>
-				<SizeSideBar
-					data={data}
-					sizes={sizes}
-					setSize={this.setSize}
-					loading={loading}
-				/>
-				{loading ? (
-					<Loading />
-				) : (
-					data.length === 0 ? (
-						<Warning>
-							<span role="img" aria-label="warning">⚠️</span>
-							There are no products to display.
-						</Warning>
+			!isMobile ? (
+				<Layout>
+					<SizeSideBar
+						data={data}
+						sizes={sizes}
+						setSize={this.setSize}
+						loading={loading}
+					/>
+					{loading ? (
+						<Loading />
 					) : (
-							<div>
-								<Header />
-								<Products products={this.state.data} />
-							</div>
-					)
-				)}
-			</Layout>
+						data.length === 0 ? (
+							<Warning>
+								<span role="img" aria-label="warning">⚠️</span>
+								There are no products to display.
+							</Warning>
+						) : (
+								<div>
+									<Header />
+									<Products products={this.state.data} />
+								</div>
+						)
+					)}
+				</Layout>
+			) : (
+				<Mobile />
+			)
 		)
 	}
 }
