@@ -17,8 +17,26 @@ const MobileWrapper = styled.div`
 
     background-color: #f8f8f8;
 
+	@media (max-width: 1366px) {
+		padding-left: 30px;
+	}
+
+	@media (max-width: 414px) {
+		padding-left: 15px;
+	}
+
 	img {
 		margin-bottom: 10px;
+
+		width: 180px;
+
+		@media (max-width: 1366px) {
+			width: 500px;
+		}
+
+		@media (max-width: 414px) {
+		width: 180px;
+		}
 	}
 
     h2 {
@@ -32,6 +50,18 @@ const MobileWrapper = styled.div`
 
 	h2, p {
 		font-size: 9px;
+
+		@media (max-width: 1366px) {
+			font-size: 24px;
+		}
+
+		@media (max-width: 768px) {
+			font-size: 20px;
+		}
+
+		@media (max-width: 414px) {
+			font-size: 9px;
+		}
 	}
 `;
 
@@ -41,7 +71,6 @@ const Mobile = () => {
             <img
                 src={logo}
                 alt="logo"
-                width="180"
             />
             <h2>
                 <span role="img" aria-label="warning">⚠️</span> Please visit <em><a href={getPageURL()}>{getPageURL()}</a></em> on a <span role="img" aria-label="desktop-computer">🖥️</span> browser!
