@@ -63,7 +63,7 @@ yarn start
 
 ## License
 
-Vineyard Vines Sales is © 2019, Nicholas Adamou.
+Vineyard Vines / Sales is © 2019, Nicholas Adamou.
 
 It is free software, and may be redistributed under the terms specified in the [LICENSE] file.
 
