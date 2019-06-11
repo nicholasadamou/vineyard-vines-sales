@@ -74,19 +74,7 @@ class Provider extends Component {
 	}
 
 	componentDidMount() {
-		// Currently fetching data
-		this.setState({
-			loading: true
-		})
-
-		functions.getProducts(getPageName(), this.state.sizes).then(data => {
-			this.setState({
-				data,
-				loading: false // data fetching finished
-			}, () => {
-				console.log(getPageName(), data)
-			})
-		})
+		this.state.handleOnPageChange()
 	}
 
 	render() {
