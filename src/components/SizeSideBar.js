@@ -85,7 +85,6 @@ class SizeSideBar extends Component {
 			<hr />
 			{getPageName() === 'sale-womens' ? (
 				<ButtonsWrapper>
-					<SizeButton size="x" setSize={setSize} />
 					<SizeButton size="xxs" setSize={setSize} />
 					<SizeButton size="xs" setSize={setSize} />
 					<SizeButton size="s" setSize={setSize} />
