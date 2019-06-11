@@ -18,6 +18,24 @@ class Provider extends Component {
 			data: [],
 			sizes: [],
 			isMobile: isMobile.any(),
+			handleOnPageChange: () => {
+				// Get the page name (e.g. 'sale-mens' or 'sale-womens')
+				const pageName = getPageName()
+
+				// Currently fetching data
+				this.setState({
+					loading: true
+				})
+
+				functions.getProducts(pageName, this.state.sizes).then(data => {
+					this.setState({
+						data,
+						loading: false // data fetching finished
+					}, () => {
+						console.log(pageName, data)
+					})
+				})
+			},
 			setSize: (sizes, size, isSelected) => {
 				// Currently fetching data
 				this.setState({

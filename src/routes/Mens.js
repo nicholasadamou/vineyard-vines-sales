@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
@@ -22,7 +22,13 @@ const Warning = styled.p`
 `
 
 const Mens = () => {
-	const { loading, data } = useContext(Context)
+	const { loading, data, handleOnPageChange } = useContext(Context)
+
+	useEffect(() => {
+		return () => {
+			handleOnPageChange()
+		};
+	}, [handleOnPageChange])
 
 	return (
 		<Layout>
