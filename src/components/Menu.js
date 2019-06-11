@@ -91,16 +91,6 @@ class Menu extends Component {
 		window.addEventListener('scroll', this.handleScroll)
 	}
 
-	componentDidUpdate() {
-		const { scroll, top, height } = this.state
-
-		if (scroll >= top) {
-			 document.body.style.paddingTop = `${height}px`
-		} else {
-			document.body.style.paddingTop = 0
-		}
-	}
-
 	render() {
 		const { scroll, top } = this.state
 
