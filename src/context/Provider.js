@@ -18,7 +18,7 @@ class Provider extends Component {
 			data: [],
 			sizes: [],
 			isMobile: isMobile.any(),
-			handleOnPageChange: () => {
+			changePage: () => {
 				// Get the page name (e.g. 'sale-mens' or 'sale-womens')
 				const pageName = getPageName()
 
@@ -74,7 +74,7 @@ class Provider extends Component {
 	}
 
 	componentDidMount() {
-		this.state.handleOnPageChange()
+		this.state.changePage()
 	}
 
 	render() {

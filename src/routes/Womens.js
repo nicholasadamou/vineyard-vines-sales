@@ -22,13 +22,13 @@ const Warning = styled.p`
 `
 
 const Womens = () => {
-	const { loading, data, handleOnPageChange } = useContext(Context)
+	const { loading, data, changePage } = useContext(Context)
 
 	useEffect(() => {
 		return () => {
-			handleOnPageChange()
+			changePage()
 		};
-	}, [handleOnPageChange])
+	}, [changePage])
 
 	return (
 		<Layout>
