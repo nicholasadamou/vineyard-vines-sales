@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import styled from 'styled-components'
 
@@ -37,7 +37,7 @@ const HeaderWrapper = styled.div`
 
 const Layout = (props) => {
 	const { children } = props
-	const { isMobile, data, sizes, setSize, loading } = React.useContext(Context)
+	const { isMobile, data, sizes, setSize, loading } = useContext(Context)
 
 	return (
 		<div>

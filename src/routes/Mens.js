@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { withRouter } from 'react-router-dom'
 
@@ -22,7 +22,7 @@ const Warning = styled.p`
 `
 
 const Mens = () => {
-	const { loading, data } = React.useContext(Context)
+	const { loading, data } = useContext(Context)
 
 	return (
 		<Layout>
