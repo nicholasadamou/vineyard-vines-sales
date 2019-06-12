@@ -71,16 +71,6 @@ class SizeSideBar extends Component {
 		window.addEventListener('scroll', this.handleScroll)
 	}
 
-	componentDidUpdate() {
-		const { scroll, top, height } = this.state
-
-		if (scroll > top) {
-			 document.body.style.paddingTop = `${height}px`
-		} else {
-			document.body.style.paddingTop = 0
-		}
-	}
-
 	render() {
 		const { scroll, top } = this.state
 		const { loading, data, setSize } = this.props
@@ -95,7 +85,6 @@ class SizeSideBar extends Component {
 			<hr />
 			{getPageName() === 'sale-womens' ? (
 				<ButtonsWrapper>
-					<SizeButton size="x" setSize={setSize} />
 					<SizeButton size="xxs" setSize={setSize} />
 					<SizeButton size="xs" setSize={setSize} />
 					<SizeButton size="s" setSize={setSize} />

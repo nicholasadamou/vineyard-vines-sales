@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
+import Context from '../context/Context';
 
 const StyledButton = styled.button`
 	padding: 2px 18px;
@@ -49,15 +50,21 @@ class SizeButton extends Component {
 		const { isSelected } = this.state;
 
 		return (
-		  <StyledButton
-			className={isSelected ? 'selected' : ''}
-			onClick={() => {
-			  this.isSelected(setSize);
-			  setSize(size, !this.state.isSelected);
-			}}
-		  >
-			{size.toUpperCase()}
-		  </StyledButton>
+			<Context.Consumer>
+				{ctx => {
+					return (
+						<StyledButton
+							className={isSelected ? 'selected' : ''}
+							onClick={() => {
+								this.isSelected();
+								setSize(ctx.sizes, size, !this.state.isSelected);
+							}}
+						>
+							{size.toUpperCase()}
+						</StyledButton>
+					)
+				}}
+			</Context.Consumer>
 		)
 	  }
 }

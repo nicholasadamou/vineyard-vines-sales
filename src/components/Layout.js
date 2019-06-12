@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import styled from 'styled-components'
 
 import { Link } from 'react-router-dom'
 
+import Context from '../context/Context'
+
 import Menu from './Menu'
-import Footer from './Footer'
+import Header from './Header'
+import SizeSideBar from './SizeSideBar'
 import ScrollButton from './ScrollButton'
+import Footer from './Footer'
+import Mobile from './Mobile'
 
 const ContentWrapper = styled.div`
 	display: flex;
@@ -31,20 +36,34 @@ const HeaderWrapper = styled.div`
 `;
 
 const Layout = (props) => {
-	const { children } = props;
+	const { children } = props
+	const { isMobile, data, sizes, setSize, loading } = useContext(Context)
 
-	return(
-		<ContentWrapper className="content">
-			<HeaderWrapper>
-				<Link to="/">
-					<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
-				</Link>
-			</HeaderWrapper>
-			<Menu />
-			{ children }
-			<ScrollButton scrollStepInPx="50" delayInMs="8" />
-			<Footer />
-		</ContentWrapper>
+	return (
+		<div>
+			{!isMobile ? (
+				<ContentWrapper className="content">
+					<HeaderWrapper>
+						<Link to="/">
+							<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
+						</Link>
+					</HeaderWrapper>
+					<Menu />
+					<Header />
+					<SizeSideBar
+						data={data}
+						sizes={sizes}
+						setSize={setSize}
+						loading={loading}
+					/>
+					{ children }
+					<ScrollButton scrollStepInPx="50" delayInMs="8" />
+					<Footer />
+				</ContentWrapper>
+			) : (
+				<Mobile />
+			)}
+		</div>
 	)
 }
 
