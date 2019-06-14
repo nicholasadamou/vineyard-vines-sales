@@ -56,7 +56,7 @@ git clone https://github.com/nicholasadamou/vineyard-vines-sales
 
 cd vineyard-vines-sales
 
-yarn install # alteratively, `npm` can be used
+yarn install # alteratively, 'npm' can be used
 
 yarn start
 ```
