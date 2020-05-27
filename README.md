@@ -12,15 +12,6 @@
   <a href="https://github.com/nicholasadamou/vineyard-vines-sales/blob/master/LICENSE.txt">
       <img src="https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat-square" alt="License">
   </a>
-  <a href="https://david-dm.org/nicholasadamou/vineyard-vines-sales#info=devDependencies">
-      <img src="https://img.shields.io/david/dev/nicholasadamou/vineyard-vines-sales.svg?style=flat-square" alt="devDependencies">
-  </a>
-  <a href="https://dependabot.com">
-      <img src="https://api.dependabot.com/badges/status?host=github&repo=nicholasadamou/vineyard-vines-sales" alt="dependabot">
-  </a>
-  <a href="https://travis-ci.org/nicholasadamou/vineyard-vines-sales">
-      <img src="https://img.shields.io/travis/nicholasadamou/vineyard-vines-sales/master.svg?style=flat-square" alt="Build Status">
-  </a>
   <a href="https://saythanks.io/to/NicholasAdamou">
       <img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="Say Thanks">
   </a>
