@@ -24,7 +24,7 @@ const Container = styled.div`
 `;
 
 const Banner = (props) => (
-	<Container>
+	<Container {...props}>
 		{props.text()}
 	</Container>
 )

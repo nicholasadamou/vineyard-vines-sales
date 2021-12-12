@@ -53,14 +53,19 @@ const Layout = (props) => {
 								This is required to allow JSSoup to scrap data from Vineyard Vines and use it in the front-end.
 							</span>
 						}
+						id="banner"
 					/>
 					<ContentWrapper className="content">
-						<HeaderWrapper>
+						<HeaderWrapper
+							id="headerWrapper"
+						>
 							<Link to="/">
 								<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
 							</Link>
 						</HeaderWrapper>
-						<Menu />
+						<Menu
+							id="menu"
+						/>
 						<Header />
 						<SizeSideBar
 							data={data}

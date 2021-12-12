@@ -126,6 +126,7 @@ class Menu extends Component {
 			<MenuWrapper
 				className={scroll > top ? 'sticky' : ''}
 				ref={(menu) => (this.menu = menu)}
+				{...this.props}
 			>
 				<NavWrapper>
 					{items}

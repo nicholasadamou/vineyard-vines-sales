@@ -35,12 +35,14 @@ const MobileWrapper = styled.div`
 		}
 
 		@media (max-width: 414px) {
-		width: 180px;
+			width: 180px;
 		}
 	}
 
     h2 {
         margin: 5px 0;
+
+	  	line-height: 2;
 
 		a {
 			color: #E12A05;

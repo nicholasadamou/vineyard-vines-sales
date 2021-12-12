@@ -1,5 +1,5 @@
 export function getPageURL() {
-	return window.location.href;
+	return window.location.origin;
 }
 
 export function getPageName() {
