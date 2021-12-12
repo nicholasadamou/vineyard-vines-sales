@@ -8,7 +8,7 @@ import { getPageName } from "../utils/utils";
 
 const SideBarWrapper = styled.div`
 	position: absolute;
-	top: 10em;
+	top: 13.5em;
 
 	margin-top: 40px;
 	margin-left: 30px;

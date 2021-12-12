@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 import Context from '../context/Context'
 
+import Banner from './Banner'
 import Menu from './Menu'
 import Header from './Header'
 import SizeSideBar from './SizeSideBar'
@@ -40,30 +41,42 @@ const Layout = (props) => {
 	const { isMobile, data, sizes, setSize, loading } = useContext(Context)
 
 	return (
-		<div>
+		<>
 			{!isMobile ? (
-				<ContentWrapper className="content">
-					<HeaderWrapper>
-						<Link to="/">
-							<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
-						</Link>
-					</HeaderWrapper>
-					<Menu />
-					<Header />
-					<SizeSideBar
-						data={data}
-						sizes={sizes}
-						setSize={setSize}
-						loading={loading}
+				<>
+					<Banner
+						text={() =>
+							<span>
+								If the page is not loading, then you must install and enable{' '}
+								<a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/" target="_blank" rel="noopener noreferrer">CORS Unblock</a> extension for Chrome.
+								<br />
+								This is required to allow JSSoup to scrap data from Vineyard Vines and use it in the front-end.
+							</span>
+						}
 					/>
-					{ children }
-					<ScrollButton scrollStepInPx="50" delayInMs="8" />
-					<Footer />
-				</ContentWrapper>
+					<ContentWrapper className="content">
+						<HeaderWrapper>
+							<Link to="/">
+								<img src="https://www.vineyardvines.com/on/demandware.static/-/Sites-Vineyard-Vines-Library/default/dw89695fd1/images/logos/logo@2.6x.png"  alt="logo" />
+							</Link>
+						</HeaderWrapper>
+						<Menu />
+						<Header />
+						<SizeSideBar
+							data={data}
+							sizes={sizes}
+							setSize={setSize}
+							loading={loading}
+						/>
+						{ children }
+						<ScrollButton scrollStepInPx="50" delayInMs="8" />
+						<Footer />
+					</ContentWrapper>
+					</>
 			) : (
 				<Mobile />
 			)}
-		</div>
+		</>
 	)
 }
 
