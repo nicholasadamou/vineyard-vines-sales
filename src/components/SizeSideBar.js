@@ -76,7 +76,7 @@ class SizeSideBar extends Component {
 		return (
 			<SideBarWrapper
 				ref={(sidebar) => (this.sidebar = sidebar)}
-				className={scroll > top ? "sticky" : ""}
+				className={scroll > (top + 75) ? "sticky" : ""}
 				style={{ display: loading || data.length === 0 ? "none" : "block" }}
 			>
 				<h3>Size</h3>
