@@ -90,26 +90,30 @@ class SizeSideBar extends Component {
 			>
 				<h3>Size</h3>
 				<hr/>
-				{getPageName() === "sale-womens" ? (<ButtonsWrapper>
-					<SizeButton size='xxs' setSize={setSize}/>
-					<SizeButton size='xs' setSize={setSize}/>
-					<SizeButton size='s' setSize={setSize}/>
-					<SizeButton size='m' setSize={setSize}/>
-					<SizeButton size='l' setSize={setSize}/>
-					<SizeButton size='xl' setSize={setSize}/>
-				</ButtonsWrapper>) : (<ButtonsWrapper>
-					<SizeButton size='x' setSize={setSize}/>
-					<SizeButton size='xxs' setSize={setSize}/>
-					<SizeButton size='xs' setSize={setSize}/>
-					<SizeButton size='s' setSize={setSize}/>
-					<SizeButton size='m' setSize={setSize}/>
-					<SizeButton size='l' setSize={setSize}/>
-					<SizeButton size='xl' setSize={setSize}/>
-					<SizeButton size='xxl' setSize={setSize}/>
-					<SizeButton size='2xl' setSize={setSize}/>
-					<SizeButton size='3xl' setSize={setSize}/>
-					<SizeButton size='4xl' setSize={setSize}/>
-				</ButtonsWrapper>)}
+				{getPageName() === "sale-womens" ? (
+					<ButtonsWrapper>
+						<SizeButton size='xxs' setSize={setSize}/>
+						<SizeButton size='xs' setSize={setSize}/>
+						<SizeButton size='s' setSize={setSize}/>
+						<SizeButton size='m' setSize={setSize}/>
+						<SizeButton size='l' setSize={setSize}/>
+						<SizeButton size='xl' setSize={setSize}/>
+					</ButtonsWrapper>
+				) : (
+					<ButtonsWrapper>
+						<SizeButton size='x' setSize={setSize}/>
+						<SizeButton size='xxs' setSize={setSize}/>
+						<SizeButton size='xs' setSize={setSize}/>
+						<SizeButton size='s' setSize={setSize}/>
+						<SizeButton size='m' setSize={setSize}/>
+						<SizeButton size='l' setSize={setSize}/>
+						<SizeButton size='xl' setSize={setSize}/>
+						<SizeButton size='xxl' setSize={setSize}/>
+						<SizeButton size='2xl' setSize={setSize}/>
+						<SizeButton size='3xl' setSize={setSize}/>
+						<SizeButton size='4xl' setSize={setSize}/>
+					</ButtonsWrapper>
+				)}
 			</SideBarWrapper>
 		);
 	}
