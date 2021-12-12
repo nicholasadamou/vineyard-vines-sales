@@ -50,6 +50,8 @@ yarn install # alteratively, 'npm' can be used
 yarn start
 ```
 
+In order for this application to function properly, you must install and use [`CORS Unblock`](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/) extension for Chrome. This is required to allow JSSoup to scrap data from Vineyard Vines and use it in the front-end.
+
 ## License
 
 Vineyard Vines / Sales is © Nicholas Adamou.
