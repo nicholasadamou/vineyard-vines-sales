@@ -7,35 +7,35 @@ import SizeButton from "./SizeButton";
 import {getPageName} from "../utils/utils";
 
 const SideBarWrapper = styled.div`
-	position: absolute;
-	top: 13.5em;
+  position: absolute;
+  top: 13.5em;
 
-	margin-top: 40px;
-	margin-left: 30px;
+  margin-top: 40px;
+  margin-left: 30px;
 
+  width: 260px;
+
+  &.sticky {
+	position: fixed;
+	top: 2rem;
 	width: 260px;
 
-	&.sticky {
-		position: fixed;
-		top: 2rem;
-		width: 260px;
+	z-index: 9999;
+  }
 
-		z-index: 9999;
-	}
+  h3 {
+	margin: 0;
 
-	h3 {
-		margin: 0;
+	color: #002960;
+	text-transform: uppercase;
+  }
 
-		color: #002960;
-		text-transform: uppercase;
-	}
+  hr {
+	height: 2px;
+	border: 0;
 
-	hr {
-		height: 2px;
-		border: 0;
-
-		background-color: #dedede;
-	}
+	background-color: #dedede;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
@@ -82,7 +82,8 @@ class SizeSideBar extends Component {
 			offset = banner.scrollHeight + headerWrapper.scrollHeight + menu.scrollHeight;
 		}
 
-		return (<SideBarWrapper
+		return (
+			<SideBarWrapper
 				ref={(sidebar) => (this.sidebar = sidebar)}
 				className={scroll > (top + offset) ? "sticky" : ""}
 				style={{display: loading || data.length === 0 ? "none" : "block"}}
@@ -90,26 +91,27 @@ class SizeSideBar extends Component {
 				<h3>Size</h3>
 				<hr/>
 				{getPageName() === "sale-womens" ? (<ButtonsWrapper>
-						<SizeButton size='xxs' setSize={setSize}/>
-						<SizeButton size='xs' setSize={setSize}/>
-						<SizeButton size='s' setSize={setSize}/>
-						<SizeButton size='m' setSize={setSize}/>
-						<SizeButton size='l' setSize={setSize}/>
-						<SizeButton size='xl' setSize={setSize}/>
-					</ButtonsWrapper>) : (<ButtonsWrapper>
-						<SizeButton size='x' setSize={setSize}/>
-						<SizeButton size='xxs' setSize={setSize}/>
-						<SizeButton size='xs' setSize={setSize}/>
-						<SizeButton size='s' setSize={setSize}/>
-						<SizeButton size='m' setSize={setSize}/>
-						<SizeButton size='l' setSize={setSize}/>
-						<SizeButton size='xl' setSize={setSize}/>
-						<SizeButton size='xxl' setSize={setSize}/>
-						<SizeButton size='2xl' setSize={setSize}/>
-						<SizeButton size='3xl' setSize={setSize}/>
-						<SizeButton size='4xl' setSize={setSize}/>
-					</ButtonsWrapper>)}
-			</SideBarWrapper>);
+					<SizeButton size='xxs' setSize={setSize}/>
+					<SizeButton size='xs' setSize={setSize}/>
+					<SizeButton size='s' setSize={setSize}/>
+					<SizeButton size='m' setSize={setSize}/>
+					<SizeButton size='l' setSize={setSize}/>
+					<SizeButton size='xl' setSize={setSize}/>
+				</ButtonsWrapper>) : (<ButtonsWrapper>
+					<SizeButton size='x' setSize={setSize}/>
+					<SizeButton size='xxs' setSize={setSize}/>
+					<SizeButton size='xs' setSize={setSize}/>
+					<SizeButton size='s' setSize={setSize}/>
+					<SizeButton size='m' setSize={setSize}/>
+					<SizeButton size='l' setSize={setSize}/>
+					<SizeButton size='xl' setSize={setSize}/>
+					<SizeButton size='xxl' setSize={setSize}/>
+					<SizeButton size='2xl' setSize={setSize}/>
+					<SizeButton size='3xl' setSize={setSize}/>
+					<SizeButton size='4xl' setSize={setSize}/>
+				</ButtonsWrapper>)}
+			</SideBarWrapper>
+		);
 	}
 }
 
