@@ -72,7 +72,15 @@ class SizeSideBar extends Component {
 		const {scroll, top} = this.state;
 		const {loading, data, setSize} = this.props;
 
-		const offset = document.querySelector("#headerWrapper").scrollHeight + document.querySelector("#menu").scrollHeight + document.querySelector("#banner").scrollHeight;
+		const headerWrapper = document.querySelector("#headerWrapper");
+		const menu = document.querySelector("#menu")
+		const banner = document.querySelector("#banner")
+
+		let offset = 0
+
+		if (banner !== null && headerWrapper !== null && menu !== null) {
+			offset = banner.scrollHeight + headerWrapper.scrollHeight + menu.scrollHeight;
+		}
 
 		return (<SideBarWrapper
 				ref={(sidebar) => (this.sidebar = sidebar)}
