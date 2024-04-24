@@ -30,20 +30,19 @@ const Mens = () => {
 
 	return (
 		<Layout>
-			{!loading ? (
-				data.length === 0 ? (
-					<Warning>
-						<span role='img' aria-label='warning'>
-							⚠️
-						</span>
-						There are no products to display.
-					</Warning>
-				) : (
-					<Products products={data} />
-				)
-			) : (
-				<Loading />
-			)}
+			{loading ? 
+    				<Loading />
+    			 : 
+    				data.length === 0 ? (
+    					<Warning>
+    						<span role='img' aria-label='warning'>
+    							⚠️
+    						</span>
+    						There are no products to display.
+    					</Warning>
+    				) : (
+    					<Products products={data} />
+    				)}
 		</Layout>
 	);
 };

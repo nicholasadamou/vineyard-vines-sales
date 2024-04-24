@@ -19,7 +19,7 @@ class Provider extends Component {
 			sizes: [],
 			isMobile: isMobile.any(),
 			changePage: () => {
-				// Get the page name (e.g. 'sale-mens' or 'sale-womens')
+				// Get the page name (e.g. 'mens-sale' or 'womens-sale')
 				const pageName = getPageName()
 
 				// Currently fetching data
@@ -54,7 +54,9 @@ class Provider extends Component {
 				} else if (sizes.includes(size) && !isSelected) {
 					// remove the size from the list
 					let index = sizes.indexOf(size);
-					if (index !== -1) sizes.splice(index, 1);
+					if (index !== -1) {
+						sizes.splice(index, 1);
+					}
 					console.log(`REMOVED=${size}`)
 				}
 

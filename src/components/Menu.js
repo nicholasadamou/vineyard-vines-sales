@@ -81,7 +81,7 @@ class Menu extends Component {
 	}
 
 	componentDidMount() {
-		const menu = this.menu
+		const {menu} = this
 
 		this.setState({
 			top: menu.offsetTop,
@@ -96,14 +96,11 @@ class Menu extends Component {
 
 		const links = [
 			{
-				label: "Men's", to: '/sale-mens'
+				label: "Men's", to: '/mens-sale'
 			},
 			{
-				label: "Women's", to: '/sale-womens'
+				label: "Women's", to: '/womens-sale'
 			},
-			{
-				label: 'Whale of a Sale', to: '/whale-of-a-sale'
-			}
 		]
 
 		const items = links.map(link => {

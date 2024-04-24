@@ -5,9 +5,8 @@ import JSSoup from "jssoup";
 export default {
 	/**
 	 * Acceptable values for sale:
-	 * sale-mens
-	 * sale-womens
-	 * whale-of-a-sale
+	 * mens-sale
+	 * womens-sale
 	 *
 	 * Acceptable Size's:
 	 * X, XS, XXS, S, M, L, XL, XXL, 2XL, 3XL, 4XL, null
@@ -16,9 +15,9 @@ export default {
 		let URL = "";
 
 		if (sizes.length === 0) {
-			URL = `https://www.vineyardvines.com/${sale}`;
+			URL = `https://www.vineyardvines.com/category/${sale}`;
 		} else {
-			URL = `https://www.vineyardvines.com/${sale}/?prefn1=size&prefv1=`;
+			URL = `https://www.vineyardvines.com/category/${sale}/?prefn1=size&prefv1=`;
 
 			for (let i = 0; i < sizes.length; i++) {
 				let size = sizes[i];
