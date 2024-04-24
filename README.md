@@ -12,9 +12,6 @@
   <a href="https://github.com/nicholasadamou/vineyard-vines-sales/blob/master/LICENSE.txt">
       <img src="https://img.shields.io/badge/license-GPLv3-blue.svg?style=flat-square" alt="License">
   </a>
-  <a href="https://saythanks.io/to/NicholasAdamou">
-      <img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="Say Thanks">
-  </a>
 </p>
 
 ---
@@ -22,6 +19,10 @@
 ## What is '_Vineyard Vines / Sales_'?
 
 I started this project first as a web-scrapper to obtain the latest data on their sales for mens and womens. Then, I decided, since I have the data from Vineyard Vines, why not try to reconstruct their sales page for both men's an womens?
+
+## Why is this repository deprecated?
+
+With Vineyard Vines moving to a dynamic SSR application, the use of [*JSSoup*](https://github.com/chishui/JSSoup) will no longer work. Therefore, I have decided to deprecate this repository.
 
 ## 📚 The Tech. Stack
 
